@@ -27,17 +27,17 @@ namespace Exam.QuestionForms
             q = new DbQuestion();
             q.Type = 4;
             q.ID = -1;
-            q.A = A.Text == "_" || A.Text == " " ? "": A.Text.ReplaceApostropheToSymbol();
-            q.B = B.Text == "_" || B.Text == " " ? "": B.Text.ReplaceApostropheToSymbol();
-            q.C = C.Text == "_" || C.Text == " " ? "": C.Text.ReplaceApostropheToSymbol();
-            q.D = D.Text == "_" || D.Text == " " ? "": D.Text.ReplaceApostropheToSymbol();
-            q.E = E.Text == "_" || E.Text == " " ? "": E.Text.ReplaceApostropheToSymbol();
-            q.F = F.Text == "_" || F.Text == " " ? "": F.Text.ReplaceApostropheToSymbol();
-            q.G = G.Text == "_" || G.Text == " " ? "": G.Text.ReplaceApostropheToSymbol();
-            q.HH = HH.Text == "_" || HH.Text == " " ? "": HH.Text.ReplaceApostropheToSymbol();
-            q.I = I.Text == "_" || I.Text == " " ? "": I.Text.ReplaceApostropheToSymbol();
-            q.J = J.Text == "_" || J.Text == " " ? "": J.Text.ReplaceApostropheToSymbol();
-            q.K = K.Text == "_" || K.Text == " " ? "": K.Text.ReplaceApostropheToSymbol();
+            q.A = A.Text == "_" || A.Text == " " ? null: A.Text.ReplaceApostropheToSymbol();
+            q.B = B.Text == "_" || B.Text == " " ? null: B.Text.ReplaceApostropheToSymbol();
+            q.C = C.Text == "_" || C.Text == " " ? null: C.Text.ReplaceApostropheToSymbol();
+            q.D = D.Text == "_" || D.Text == " " ? null: D.Text.ReplaceApostropheToSymbol();
+            q.E = E.Text == "_" || E.Text == " " ? null: E.Text.ReplaceApostropheToSymbol();
+            q.F = F.Text == "_" || F.Text == " " ? null: F.Text.ReplaceApostropheToSymbol();
+            q.G = G.Text == "_" || G.Text == " " ? null: G.Text.ReplaceApostropheToSymbol();
+            q.HH = HH.Text == "_" || HH.Text == " " ? null: HH.Text.ReplaceApostropheToSymbol();
+            q.I = I.Text == "_" || I.Text == " " ? null: I.Text.ReplaceApostropheToSymbol();
+            q.J = J.Text == "_" || J.Text == " " ? null: J.Text.ReplaceApostropheToSymbol();
+            q.K = K.Text == "_" || K.Text == " " ? null: K.Text.ReplaceApostropheToSymbol();
         }
 
         private void Type4_Load(object sender, EventArgs e)

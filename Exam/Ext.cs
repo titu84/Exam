@@ -15,7 +15,7 @@ namespace Exam
         /// <returns></returns>
         public static string ReplaceSemicolonToSymbol(this string value)
         {
-            return value.Replace("\"[srednik]", ";");
+            return replace(value, "\"[srednik]", ";");
         }
         /// <summary>
         /// return value.Replace(";", "\"[srednik]");
@@ -24,7 +24,7 @@ namespace Exam
         /// <returns></returns>
         public static string ReplaceSymbolToSemicolon(this string value)
         {
-            return value.Replace(";", "\"[srednik]");
+            return replace(value, ";", "\"[srednik]");
         }
         /// <summary>
         /// return value.Replace("\"[apostrof]", "'");
@@ -33,7 +33,7 @@ namespace Exam
         /// <returns></returns>
         public static string ReplaceApostropheToSymbol(this string value)
         {
-            return value.Replace("\"[apostrof]", "'");
+            return replace(value, "\"[apostrof]", "'");
         }
         /// <summary>
         /// return value.Replace("'", "\"[apostrof]");
@@ -42,7 +42,16 @@ namespace Exam
         /// <returns></returns>
         public static string ReplaceSymbolToApostrophe(this string value)
         {
-            return value.Replace("'", "\"[apostrof]");
+            return replace(value, "'", "\"[apostrof]");
+        }
+
+        private static string replace(string value, string fromStr, string toStr)
+        {
+            if (value == null)
+                return null;
+            else if (value == "")
+                return "";
+            return value.Replace(fromStr, toStr);
         }
     }
 }

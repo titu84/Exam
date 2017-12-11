@@ -26,9 +26,7 @@ namespace Exam
         public string connStr;
         int lower = 50;
         string replace1 = "\n";
-        string replace2 = "</br>";
-        string replace3 = "'";
-        string replace4 = "\"[apostrof]";      
+        string replace2 = "</br>";          
         Image image;
         int rtbW = 1073;
         int rtbH = 0;
@@ -37,7 +35,7 @@ namespace Exam
         private void cbQuestionType_SelectedIndexChanged(object sender, EventArgs e)
         {
             setRtbLocation();
-            richTextBox1.Text = richTextBox1.Text.Replace(replace4, replace3);            
+            richTextBox1.Text = richTextBox1.Text.ReplaceApostropheToSymbol();           
             switch (cbQuestionType.SelectedIndex)
             {
                 case 0:
@@ -268,7 +266,7 @@ namespace Exam
                 if (cbQuestionList.SelectedIndex > 0)
                     q.ID = Convert.ToInt16(cbQuestionList.SelectedItem);
                 q.question = richTextBox1.Text.Replace(replace1, replace2);
-                q.question = q.question.Replace(replace3, replace4);             
+                q.question = q.question.ReplaceSymbolToApostrophe();            
                 //Poprawianie Tabeli.
                 q.question = q.question.Replace("<table border='1'></br>", "<table border='1'>");
                 q.question = q.question.Replace("</table></br>", "</table>");
@@ -306,7 +304,7 @@ namespace Exam
                 MessageBox.Show("Coś nie zadziałało, spróbuj ponownie.\n" + exc.Message);
             }
         }
-
+        int reCounter = 0;
         private void cbQuestionList_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -320,8 +318,7 @@ namespace Exam
                     DbQuestion q = r.GetQuestion(id);
                     if (q.QType == 2)
                     {
-                        cbQuestionType.SelectedIndex = 2;
-                        //setRtbLocation();
+                        cbQuestionType.SelectedIndex = 2;                        
                         pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                         pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
                          // ciągniemy obrazki z bazy                       
@@ -337,7 +334,7 @@ namespace Exam
                     }
                     cbAnswerType.SelectedIndex = (int)q.Type == 6? (int)q.Type - 2: (int)q.Type - 1;
                     richTextBox1.Text = q.question.Replace(replace2, replace1);
-                    richTextBox1.Text = richTextBox1.Text.Replace(replace4, replace3);                   
+                    richTextBox1.Text = richTextBox1.Text.ReplaceApostropheToSymbol();                   
                     type1.Dispose();
                     type2.Dispose();
                     type3.Dispose();
@@ -398,10 +395,15 @@ namespace Exam
                     cbAnswerType.SelectedIndex = 1; //Domyslny typ2 przy wprowadzaniu nowego. (Jednego)
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                reCounter++;
+                if (reCounter == 5)
+                {
+                    throw;
+                }
                 //Ponowna próba rekursywnie.
-                cbQuestionList_SelectedIndexChanged(sender, e);
+                cbQuestionList_SelectedIndexChanged(sender, e);               
             }
 
         }

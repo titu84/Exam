@@ -134,6 +134,7 @@
             this.listBox2.Size = new System.Drawing.Size(170, 108);
             this.listBox2.TabIndex = 21;
             this.listBox2.MouseEnter += new System.EventHandler(this.listBox2_MouseEnter);
+            this.listBox2.MouseLeave += new System.EventHandler(this.listBox2_MouseLeave);
             // 
             // listBox1
             // 
@@ -144,6 +145,7 @@
             this.listBox1.Size = new System.Drawing.Size(170, 108);
             this.listBox1.TabIndex = 20;
             this.listBox1.MouseEnter += new System.EventHandler(this.listBox1_MouseEnter);
+            this.listBox1.MouseLeave += new System.EventHandler(this.listBox1_MouseLeave);
             // 
             // Type5q
             // 

@@ -18,9 +18,6 @@ namespace Exam.QuestionForms
         {
             InitializeComponent();
         }
-        string replace3 = "'";
-        string replace4 = "\"[apostrof]";
-
         public DbQuestion q;
         bool allowDoubles = false;
         public List<object> items = new List<object>();
@@ -36,10 +33,10 @@ namespace Exam.QuestionForms
             q = new DbQuestion();
             q.Type = cbDoubles.Checked == false ? (short)5 : (short)6;
             q.ID = -1;
-            q.A = listBox1.Items == null ? "" : concateArray(listBox1.Items).Replace(replace3, replace4);
-            q.B = listBox2.Items == null ? "" : concateArray(listBox2.Items).Replace(replace3, replace4);
+            q.A = listBox1.Items == null ? "" : concateArray(listBox1.Items).ReplaceSymbolToApostrophe();
+            q.B = listBox2.Items == null ? "" : concateArray(listBox2.Items).ReplaceSymbolToApostrophe();
             q.C = cbDoubles.Checked ? "1" : "0";
-            q.H = listOptions.Items == null ? "" : concateArray(listOptions.Items).Replace(replace3, replace4);
+            q.H = listOptions.Items == null ? "" : concateArray(listOptions.Items).ReplaceSymbolToApostrophe();
             load();
         }
         string concateArray(ListBox.ObjectCollection arr)
@@ -82,26 +79,28 @@ namespace Exam.QuestionForms
             if (q != null)
             {
                 items = splitArray(q.H);
-                items1 = splitArray(q.A)[0].ToString() == "" ? null : splitArray(q.A);
-                items2 = splitArray(q.B)[0].ToString() == "" ? null : splitArray(q.B);
+                items1 = splitArray(q.A)[0] as string == "" ? null : splitArray(q.A);
+                items2 = splitArray(q.B)[0] as string == "" ? null : splitArray(q.B);
                 allowDoubles = q.C == "1" ? true : false;
                 cbDoubles.CheckState = allowDoubles == true ? CheckState.Checked : CheckState.Unchecked;
                 listOptions.Items.Clear();
                 foreach (var item in items)
                 {
-                    listOptions.Items.Add(item.ToString().Replace(replace4, replace3));
+                    listOptions.Items.Add(item.ToString().ReplaceApostropheToSymbol());
                 }
                 listBox1.Items.Clear();
                 if (items1 != null)
                     foreach (var item in items1)
                     {
-                        listBox1.Items.Add(item.ToString().Replace(replace4, replace3));
+                        if (item != null)
+                            listBox1.Items.Add(item.ToString().ReplaceApostropheToSymbol());
                     }
                 listBox2.Items.Clear();
                 if (items2 != null)
                     foreach (var item in items2)
                     {
-                        listBox2.Items.Add(item.ToString().Replace(replace4, replace3));
+                        if (item != null)
+                            listBox2.Items.Add(item.ToString().ReplaceApostropheToSymbol());
                     }
             }
             else
@@ -112,7 +111,8 @@ namespace Exam.QuestionForms
                     listOptions.Items.Clear();
                     foreach (var item in items)
                     {
-                        listOptions.Items.Add(item.ToString().Replace(replace4, replace3));
+                        if (item != null)
+                            listOptions.Items.Add(item.ToString().ReplaceApostropheToSymbol());
                     }
                     listBox1.Items.Clear();
                     listBox2.Items.Clear();
@@ -131,7 +131,7 @@ namespace Exam.QuestionForms
                 if (result == DialogResult.OK)
                 {
                     string val = form.resultStr;
-                    listOptions.Items.Add(val.Replace(replace4, replace3));
+                    listOptions.Items.Add(val.ReplaceApostropheToSymbol());
                 }
             }
         }
@@ -198,7 +198,7 @@ namespace Exam.QuestionForms
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    listOptions.Items[listOptions.SelectedIndex] = form.resultStr.Replace(replace4, replace3);
+                    listOptions.Items[listOptions.SelectedIndex] = form.resultStr.ReplaceApostropheToSymbol();
                     listBox1.Items.Clear();
                     listBox2.Items.Clear();
                 }

@@ -50,7 +50,7 @@ namespace Exam
         {
             input = input.Replace("</br>", "%20");
             input = input.Replace(" ", "%20");
-            input = input.Replace("\"[apostrof]", "'");        
+            input = input.ReplaceApostropheToSymbol();       
             input = input.Replace(Environment.NewLine, "%20");           
             return input;
         }

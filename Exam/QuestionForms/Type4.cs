@@ -17,8 +17,7 @@ namespace Exam.QuestionForms
         {
             InitializeComponent();
         }
-        string replace3 = "'";
-        string replace4 = "\"[apostrof]";       
+              
         public DbQuestion q;
         public List<object> items = new List<object>();
         int[] indexes;
@@ -31,18 +30,18 @@ namespace Exam.QuestionForms
             q = new DbQuestion();
             q.Type = 4;
             q.ID = -1;
-            q.A = A.SelectedItem == null ? "" : A.SelectedItem.ToString().Replace(replace3, replace4);
-            q.B = B.SelectedItem == null ? "" : B.SelectedItem.ToString().Replace(replace3, replace4);
-            q.C = C.SelectedItem == null ? "" : C.SelectedItem.ToString().Replace(replace3, replace4);
-            q.D = D.SelectedItem == null ? "" : D.SelectedItem.ToString().Replace(replace3, replace4);
-            q.E = E.SelectedItem == null ? "" : E.SelectedItem.ToString().Replace(replace3, replace4);
-            q.F = F.SelectedItem == null ? "" : F.SelectedItem.ToString().Replace(replace3, replace4);
-            q.G = G.SelectedItem == null ? "" : G.SelectedItem.ToString().Replace(replace3, replace4);
-            q.HH = H.SelectedItem == null ? "" : H.SelectedItem.ToString().Replace(replace3, replace4);
-            q.I = I.SelectedItem == null ? "" : I.SelectedItem.ToString().Replace(replace3, replace4);
-            q.J = J.SelectedItem == null ? "" : J.SelectedItem.ToString().Replace(replace3, replace4);
-            q.K = K.SelectedItem == null ? "" : K.SelectedItem.ToString().Replace(replace3, replace4);
-            q.H = listOptions.Items == null ? "" : concateArray(listOptions.Items).Replace(replace3, replace4);
+            q.A = A.SelectedItem == null ? "" : A.SelectedItem.ToString().ReplaceSymbolToApostrophe();
+            q.B = B.SelectedItem == null ? "" : B.SelectedItem.ToString().ReplaceSymbolToApostrophe();
+            q.C = C.SelectedItem == null ? "" : C.SelectedItem.ToString().ReplaceSymbolToApostrophe();
+            q.D = D.SelectedItem == null ? "" : D.SelectedItem.ToString().ReplaceSymbolToApostrophe();
+            q.E = E.SelectedItem == null ? "" : E.SelectedItem.ToString().ReplaceSymbolToApostrophe();
+            q.F = F.SelectedItem == null ? "" : F.SelectedItem.ToString().ReplaceSymbolToApostrophe();
+            q.G = G.SelectedItem == null ? "" : G.SelectedItem.ToString().ReplaceSymbolToApostrophe();
+            q.HH = H.SelectedItem == null ? "" : H.SelectedItem.ToString().ReplaceSymbolToApostrophe();
+            q.I = I.SelectedItem == null ? "" : I.SelectedItem.ToString().ReplaceSymbolToApostrophe();
+            q.J = J.SelectedItem == null ? "" : J.SelectedItem.ToString().ReplaceSymbolToApostrophe();
+            q.K = K.SelectedItem == null ? "" : K.SelectedItem.ToString().ReplaceSymbolToApostrophe();
+            q.H = listOptions.Items == null ? "" : concateArray(listOptions.Items).ReplaceSymbolToApostrophe();
 
             load();
         }
@@ -89,21 +88,21 @@ namespace Exam.QuestionForms
                 listOptions.Items.Clear();
                 foreach (var item in items)
                 {
-                    listOptions.Items.Add(item.ToString().Replace(replace4, replace3));
+                    listOptions.Items.Add(item.ToString().ReplaceApostropheToSymbol());
                 }
                 indexes = new int[] { A.SelectedIndex, B.SelectedIndex, C.SelectedIndex, D.SelectedIndex, E.SelectedIndex, F.SelectedIndex, G.SelectedIndex, H.SelectedIndex, I.SelectedIndex, J.SelectedIndex, K.SelectedIndex };
                 updateComboBoxes();
-                A.SelectedItem = q.A == null ? "" : q.A.Replace(replace4, replace3);
-                B.SelectedItem = q.B == null ? "" : q.B.Replace(replace4, replace3);
-                C.SelectedItem = q.C == null ? "" : q.C.Replace(replace4, replace3);
-                D.SelectedItem = q.D == null ? "" : q.D.Replace(replace4, replace3);
-                E.SelectedItem = q.E == null ? "" : q.E.Replace(replace4, replace3);
-                F.SelectedItem = q.F == null ? "" : q.F.Replace(replace4, replace3);
-                G.SelectedItem = q.G == null ? "" : q.G.Replace(replace4, replace3);
-                H.SelectedItem = q.HH == null ? "" : q.H.Replace(replace4, replace3);
-                I.SelectedItem = q.I == null ? "" : q.I.Replace(replace4, replace3);
-                J.SelectedItem = q.J == null ? "" : q.J.Replace(replace4, replace3);
-                K.SelectedItem = q.K == null ? "" : q.K.Replace(replace4, replace3);
+                A.SelectedItem = q.A == null ? "" : q.A.ReplaceApostropheToSymbol();
+                B.SelectedItem = q.B == null ? "" : q.B.ReplaceApostropheToSymbol();
+                C.SelectedItem = q.C == null ? "" : q.C.ReplaceApostropheToSymbol();
+                D.SelectedItem = q.D == null ? "" : q.D.ReplaceApostropheToSymbol();
+                E.SelectedItem = q.E == null ? "" : q.E.ReplaceApostropheToSymbol();
+                F.SelectedItem = q.F == null ? "" : q.F.ReplaceApostropheToSymbol();
+                G.SelectedItem = q.G == null ? "" : q.G.ReplaceApostropheToSymbol();
+                H.SelectedItem = q.HH == null ? "" : q.H.ReplaceApostropheToSymbol();
+                I.SelectedItem = q.I == null ? "" : q.I.ReplaceApostropheToSymbol();
+                J.SelectedItem = q.J == null ? "" : q.J.ReplaceApostropheToSymbol();
+                K.SelectedItem = q.K == null ? "" : q.K.ReplaceApostropheToSymbol();
             }
             else
             {
@@ -113,7 +112,7 @@ namespace Exam.QuestionForms
                     listOptions.Items.Clear();
                     foreach (var item in items)
                     {
-                        listOptions.Items.Add(item.ToString().Replace(replace4, replace3));
+                        listOptions.Items.Add(item.ToString().ReplaceApostropheToSymbol());
                     }
                     updateComboBoxes();
                 }
@@ -130,7 +129,7 @@ namespace Exam.QuestionForms
                 if (result == DialogResult.OK)
                 {
                     string val = form.resultStr;
-                    listOptions.Items.Add(val.Replace(replace4, replace3));
+                    listOptions.Items.Add(val.ReplaceApostropheToSymbol());
                     indexes = new int[] { A.SelectedIndex, B.SelectedIndex, C.SelectedIndex, D.SelectedIndex, E.SelectedIndex, F.SelectedIndex, G.SelectedIndex, H.SelectedIndex, I.SelectedIndex, J.SelectedIndex, K.SelectedIndex };
                     updateComboBoxes();
                 }
@@ -175,7 +174,7 @@ namespace Exam.QuestionForms
                     ((ComboBox)c).Items.Clear();
                     foreach (var item in items)
                     {
-                        ((ComboBox)c).Items.Add(item.ToString().Replace(replace4, replace3));
+                        ((ComboBox)c).Items.Add(item.ToString().ReplaceApostropheToSymbol());
                     }
                 }
             }
@@ -291,7 +290,7 @@ namespace Exam.QuestionForms
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    listOptions.Items[listOptions.SelectedIndex] = form.resultStr.Replace(replace4, replace3); 
+                    listOptions.Items[listOptions.SelectedIndex] = form.resultStr.ReplaceApostropheToSymbol(); 
                     updateComboBoxes();
                 }
             }

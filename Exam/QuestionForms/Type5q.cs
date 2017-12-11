@@ -18,10 +18,7 @@ namespace Exam.QuestionForms
         {
             allowDoubles = nd;
             InitializeComponent();
-        }
-        string replace3 = "'";
-        string replace4 = "\"[apostrof]";
-
+        }   
         public DbQuestion q;
         bool allowDoubles;
         public string a; // Opcje
@@ -38,8 +35,8 @@ namespace Exam.QuestionForms
             q = new DbQuestion();
             q.Type = allowDoubles == true ? (short)5 : (short)6;
             q.ID = -1;
-            q.A = listBox1.Items == null ? "" : concateArray(listBox1.Items).Replace(replace3, replace4);
-            q.B = listBox2.Items == null ? "" : concateArray(listBox2.Items).Replace(replace3, replace4);
+            q.A = listBox1.Items == null ? "" : concateArray(listBox1.Items);
+            q.B = listBox2.Items == null ? "" : concateArray(listBox2.Items);
             load();
         }
         string concateArray(ListBox.ObjectCollection arr)
@@ -91,12 +88,12 @@ namespace Exam.QuestionForms
                 listBox1.Items.Clear();
                 foreach (var item in items1)
                 {
-                    listBox1.Items.Add(item.ToString().Replace(replace4, replace3));
+                    listBox1.Items.Add(item.ToString().ReplaceApostropheToSymbol());
                 }
                 listBox2.Items.Clear();
                 foreach (var item in items2)
                 {
-                    listBox2.Items.Add(item.ToString().Replace(replace4, replace3));
+                    listBox2.Items.Add(item.ToString().ReplaceApostropheToSymbol());
                 }
             }
             else
@@ -125,7 +122,7 @@ namespace Exam.QuestionForms
                     }
                     foreach (var item in items1)
                     {
-                        listBox1.Items.Add(item.ToString().Replace(replace4, replace3));
+                        listBox1.Items.Add(item.ToString().ReplaceApostropheToSymbol());
                     }
                 }
                 catch
@@ -241,7 +238,7 @@ namespace Exam.QuestionForms
             StringBuilder options = new StringBuilder();
             foreach (var item in lb.Items)
             {
-                options.AppendLine(item.ToString());
+                options.AppendLine(item.ToString().ReplaceApostropheToSymbol());
             }
             toolTip1.Show(options.ToString(), lb);
         }
@@ -249,6 +246,16 @@ namespace Exam.QuestionForms
         private void listBox2_MouseEnter(object sender, EventArgs e)
         {
             showTooltip(listBox2);
+        }
+
+        private void listBox1_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(listBox1);
+        }
+
+        private void listBox2_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(listBox2);
         }
     }
 }

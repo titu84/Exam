@@ -9,6 +9,7 @@ using System.Text;
 using System.Configuration;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Exam
 {
@@ -157,7 +158,7 @@ namespace Exam
                 }
                 openForm("Pytanie " + list[0].ID.ToString(), true);
             }
-            catch
+            catch (Exception ex)
             {
                 closeAllChildren();
             }
@@ -177,8 +178,8 @@ namespace Exam
                 int id = Convert.ToInt32(idString);
                 if (list.Where(a => a.ID == id).Select(a => a.QType).FirstOrDefault() != 2)
                 {
-                    f.webBrowser1.Visible = true;                    
-                    f.webBrowser1.DocumentText = fontStart + list.Where(a => a.ID == id).Select(a => a.question.Replace("\"[apostrof]", "'")).FirstOrDefault() + "  </div> ";
+                    f.webBrowser1.Visible = true;
+                    f.webBrowser1.DocumentText = fontStart + list.Where(a => a.ID == id).Select(a => a.question.ReplaceApostropheToSymbol()).FirstOrDefault() + "  </div> ";
                 }
                 else
                 {
@@ -293,25 +294,25 @@ namespace Exam
                         case 5:
                             tabQ = new string[] { q.A, q.B };
                             tabA = new string[] {
-                            checkedQ.Answer.A == null ? "": checkedQ.Answer.A,
-                            checkedQ.Answer.B == null ? "": checkedQ.Answer.B };
+                            checkedQ.Answer.A == null ? null: checkedQ.Answer.A,
+                            checkedQ.Answer.B == null ? null: checkedQ.Answer.B };
                             break;
                         case 6:
                             tabQ = new string[] { q.B };
                             tabA = new string[] {
-                            checkedQ.Answer.A == null ? "": checkedQ.Answer.B };
+                            checkedQ.Answer.A == null ? null: checkedQ.Answer.B };
                             break;
                         default:
                             tabQ = new string[] { q.A, q.B, q.C, q.D, q.E, q.F, q.G, q.H };
                             tabA = new string[] {
-                            checkedQ.Answer.A == null ? "": checkedQ.Answer.A,
-                            checkedQ.Answer.B == null ? "": checkedQ.Answer.B,
-                            checkedQ.Answer.C == null ? "": checkedQ.Answer.C,
-                            checkedQ.Answer.D == null ? "": checkedQ.Answer.D,
-                            checkedQ.Answer.E == null ? "": checkedQ.Answer.E,
-                            checkedQ.Answer.F == null ? "": checkedQ.Answer.F,
-                            checkedQ.Answer.G == null ? "": checkedQ.Answer.G,
-                            checkedQ.Answer.H == null ? "": checkedQ.Answer.H
+                            checkedQ.Answer.A == null ? null: checkedQ.Answer.A,
+                            checkedQ.Answer.B == null ? null: checkedQ.Answer.B,
+                            checkedQ.Answer.C == null ? null: checkedQ.Answer.C,
+                            checkedQ.Answer.D == null ? null: checkedQ.Answer.D,
+                            checkedQ.Answer.E == null ? null: checkedQ.Answer.E,
+                            checkedQ.Answer.F == null ? null: checkedQ.Answer.F,
+                            checkedQ.Answer.G == null ? null: checkedQ.Answer.G,
+                            checkedQ.Answer.H == null ? null: checkedQ.Answer.H
                             };
                             break;
                     }
@@ -524,7 +525,7 @@ namespace Exam
                         string template = "";
                         if (File.Exists(questionTemplatePath))
                             template = File.ReadAllText(questionTemplatePath);
-                        CheckedQuestion cq = new CheckedQuestion();                                      
+                        CheckedQuestion cq = new CheckedQuestion();
                         q.question = q.question.ReplaceApostropheToSymbol();
                         cq.Question = q;
                         if (template.Length > 0)
