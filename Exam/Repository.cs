@@ -164,7 +164,7 @@ namespace Exam
             {
                 for (int i = 0; i < toFind.Length; i++)
                 {
-                    toFind[i] = toFind[i].Replace("'", "\"[apostrof]");              
+                    toFind[i] = toFind[i].ReplaceSymbolToApostrophe();             
                     if (i == 0)
                         where += " WHERE Question Like '%" + toFind[i] + "%' ";
                     else
@@ -190,22 +190,20 @@ namespace Exam
                                     ID = Convert.ToInt16(reader["ID"]),
                                     Type = Convert.ToInt16(reader["Type"]),
                                     question = reader["Question"].ToString(),
-                                    A = reader["A"].ToString(),
-                                    B = reader["B"].ToString(),
-                                    C = reader["C"].ToString(),
-                                    D = reader["D"].ToString(),
-                                    E = reader["E"].ToString(),
-                                    F = reader["F"].ToString(),
-                                    G = reader["G"].ToString(),
-                                    H = reader["H"].ToString(),
-                                    HH = reader["HH"].ToString(),
-                                    I = reader["I"].ToString(),
-                                    J = reader["J"].ToString(),
-                                    K = reader["K"].ToString(),
-                                    QType = Convert.ToInt16(reader["QType"]),
-                                    //Image = !String.IsNullOrEmpty(reader["ImageText"].ToString()) ? StringToImage(reader["ImageText"].ToString()) : null,
-                                    ImageText = reader["ImageText"].ToString(),
-                                    //ImageAlt = !String.IsNullOrEmpty(reader["ImageTextAlt"].ToString()) ? StringToImage(reader["ImageTextAlt"].ToString()) : null,
+                                    A = reader["A"].ToString().ReplaceApostropheToSymbol(),
+                                    B = reader["B"].ToString().ReplaceApostropheToSymbol(),
+                                    C = reader["C"].ToString().ReplaceApostropheToSymbol(),
+                                    D = reader["D"].ToString().ReplaceApostropheToSymbol(),
+                                    E = reader["E"].ToString().ReplaceApostropheToSymbol(),
+                                    F = reader["F"].ToString().ReplaceApostropheToSymbol(),
+                                    G = reader["G"].ToString().ReplaceApostropheToSymbol(),
+                                    H = reader["H"].ToString().ReplaceApostropheToSymbol(),
+                                    HH = reader["HH"].ToString().ReplaceApostropheToSymbol(),
+                                    I = reader["I"].ToString().ReplaceApostropheToSymbol(),
+                                    J = reader["J"].ToString().ReplaceApostropheToSymbol(),
+                                    K = reader["K"].ToString().ReplaceApostropheToSymbol(),
+                                    QType = Convert.ToInt16(reader["QType"]),                                    
+                                    ImageText = reader["ImageText"].ToString(),                                   
                                     ImageTextAlt = reader["ImageTextAlt"].ToString()
                                 });
                             }
@@ -311,18 +309,18 @@ namespace Exam
                                 question.ID = Convert.ToInt16(reader["ID"]);
                                 question.Type = Convert.ToInt16(reader["Type"]);
                                 question.question = reader["Question"].ToString();
-                                question.A = reader["A"].ToString();
-                                question.B = reader["B"].ToString();
-                                question.C = reader["C"].ToString();
-                                question.D = reader["D"].ToString();
-                                question.E = reader["E"].ToString();
-                                question.F = reader["F"].ToString();
-                                question.G = reader["G"].ToString();
-                                question.H = reader["H"].ToString();
-                                question.HH = reader["HH"].ToString();
-                                question.I = reader["J"].ToString();
-                                question.J = reader["J"].ToString();
-                                question.K = reader["K"].ToString();
+                                question.A = reader["A"].ToString().ReplaceApostropheToSymbol();
+                                question.B = reader["B"].ToString().ReplaceApostropheToSymbol();
+                                question.C = reader["C"].ToString().ReplaceApostropheToSymbol();
+                                question.D = reader["D"].ToString().ReplaceApostropheToSymbol();
+                                question.E = reader["E"].ToString().ReplaceApostropheToSymbol();
+                                question.F = reader["F"].ToString().ReplaceApostropheToSymbol();
+                                question.G = reader["G"].ToString().ReplaceApostropheToSymbol();
+                                question.H = reader["H"].ToString().ReplaceApostropheToSymbol();
+                                question.HH = reader["HH"].ToString().ReplaceApostropheToSymbol();
+                                question.I = reader["J"].ToString().ReplaceApostropheToSymbol();
+                                question.J = reader["J"].ToString().ReplaceApostropheToSymbol();
+                                question.K = reader["K"].ToString().ReplaceApostropheToSymbol();
                                 question.QType = Convert.ToInt16(reader["QType"]);
                                 if (withImages==true)
                                 {                                    
@@ -379,18 +377,18 @@ namespace Exam
             string sql = "Insert into [Questions] (Question, Type, A, B, C, D, E, F, G, H, HH, I, J, K, QType, ImageText, ImageTextAlt) Values ( " +
                 "'" + question.question + "'" + " , " +
                 question.Type + " , " +
-                "'" + question.A + "'" + " , " +
-                "'" + question.B + "'" + " , " +
-                "'" + question.C + "'" + " , " +
-                "'" + question.D + "'" + " , " +
-                "'" + question.E + "'" + " , " +
-                "'" + question.F + "'" + " , " +
-                "'" + question.G + "'" + " , " +
-                "'" + question.H + "'" + " , " +
-                "'" + question.HH + "'" + " , " +
-                "'" + question.I + "'" + " , " +
-                "'" + question.J + "'" + " , " +
-                "'" + question.K + "'" + " , " +
+                "'" + question.A.ReplaceSymbolToApostrophe() + "'" + " , " +
+                "'" + question.B.ReplaceSymbolToApostrophe() + "'" + " , " +
+                "'" + question.C.ReplaceSymbolToApostrophe() + "'" + " , " +
+                "'" + question.D.ReplaceSymbolToApostrophe() + "'" + " , " +
+                "'" + question.E.ReplaceSymbolToApostrophe() + "'" + " , " +
+                "'" + question.F.ReplaceSymbolToApostrophe() + "'" + " , " +
+                "'" + question.G.ReplaceSymbolToApostrophe() + "'" + " , " +
+                "'" + question.H.ReplaceSymbolToApostrophe() + "'" + " , " +
+                "'" + question.HH.ReplaceSymbolToApostrophe() + "'" + " , " +
+                "'" + question.I.ReplaceSymbolToApostrophe() + "'" + " , " +
+                "'" + question.J.ReplaceSymbolToApostrophe() + "'" + " , " +
+                "'" + question.K.ReplaceSymbolToApostrophe() + "'" + " , " +
                 question.QType + " , " +
                 "'" + question.ImageText + "'" + " , " +
                 "'" + question.ImageTextAlt + "'" +
@@ -426,20 +424,20 @@ namespace Exam
                 + "Question = '" + question.question + "', "
                 + "Type = " + question.Type + ", "
                 + "QType = " + question.QType + ", "
-                + "A = '" + question.A + "', "
-                + "B = '" + question.B + "', "
-                + "C = '" + question.C + "', "
-                + "D = '" + question.D + "', "
-                + "E = '" + question.E + "', "
-                + "F = '" + question.F + "', "
-                + "G = '" + question.G + "', "
-                + "HH = '" + question.HH + "', "
-                + "I = '" + question.I + "', "
-                + "J = '" + question.J + "', "
-                + "K = '" + question.K + "', "
+                + "A = '" + question.A.ReplaceSymbolToApostrophe() + "', "
+                + "B = '" + question.B.ReplaceSymbolToApostrophe() + "', "
+                + "C = '" + question.C.ReplaceSymbolToApostrophe() + "', "
+                + "D = '" + question.D.ReplaceSymbolToApostrophe() + "', "
+                + "E = '" + question.E.ReplaceSymbolToApostrophe() + "', "
+                + "F = '" + question.F.ReplaceSymbolToApostrophe() + "', "
+                + "G = '" + question.G.ReplaceSymbolToApostrophe() + "', "
+                + "HH = '" + question.HH.ReplaceSymbolToApostrophe() + "', "
+                + "I = '" + question.I.ReplaceSymbolToApostrophe() + "', "
+                + "J = '" + question.J.ReplaceSymbolToApostrophe() + "', "
+                + "K = '" + question.K.ReplaceSymbolToApostrophe() + "', "
                 + "ImageText = '" + question.ImageText + "', "
                 + "ImageTextAlt = '" + question.ImageTextAlt + "', "
-                + "H = '" + question.H + "'"
+                + "H = '" + question.H.ReplaceSymbolToApostrophe() + "'"
                 + " WHERE ID = " + question.ID;
             using (SQLiteConnection con = new SQLiteConnection(conStr))
             {

@@ -524,8 +524,8 @@ namespace Exam
                         string template = "";
                         if (File.Exists(questionTemplatePath))
                             template = File.ReadAllText(questionTemplatePath);
-                        CheckedQuestion cq = new CheckedQuestion();
-                        q.question = q.question.Replace("\"[apostrof]", "'");                    
+                        CheckedQuestion cq = new CheckedQuestion();                                      
+                        q.question = q.question.ReplaceApostropheToSymbol();
                         cq.Question = q;
                         if (template.Length > 0)
                         {

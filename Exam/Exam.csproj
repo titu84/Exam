@@ -93,6 +93,7 @@
     <Compile Include="AddRangeForm.Designer.cs">
       <DependentUpon>AddRangeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ext.cs" />
     <Compile Include="QuestionForms\Talk.cs" />
     <Compile Include="QuestionForms\Type5q.cs">
       <SubType>UserControl</SubType>

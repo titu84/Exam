@@ -27,17 +27,17 @@ namespace Exam.QuestionForms
             q = new DbQuestion();
             q.Type = 4;
             q.ID = -1;
-            q.A = A.Text == "_" || A.Text == " " ? "": A.Text;
-            q.B = B.Text == "_" || B.Text == " " ? "": B.Text;
-            q.C = C.Text == "_" || C.Text == " " ? "": C.Text;
-            q.D = D.Text == "_" || D.Text == " " ? "": D.Text;
-            q.E = E.Text == "_" || E.Text == " " ? "": E.Text;
-            q.F = F.Text == "_" || F.Text == " " ? "": F.Text;
-            q.G = G.Text == "_" || G.Text == " " ? "": G.Text;
-            q.HH = HH.Text == "_" || HH.Text == " " ? "": HH.Text;
-            q.I = I.Text == "_" || I.Text == " " ? "": I.Text;
-            q.J = J.Text == "_" || J.Text == " " ? "": J.Text;
-            q.K = K.Text == "_" || K.Text == " " ? "": K.Text;
+            q.A = A.Text == "_" || A.Text == " " ? "": A.Text.ReplaceApostropheToSymbol();
+            q.B = B.Text == "_" || B.Text == " " ? "": B.Text.ReplaceApostropheToSymbol();
+            q.C = C.Text == "_" || C.Text == " " ? "": C.Text.ReplaceApostropheToSymbol();
+            q.D = D.Text == "_" || D.Text == " " ? "": D.Text.ReplaceApostropheToSymbol();
+            q.E = E.Text == "_" || E.Text == " " ? "": E.Text.ReplaceApostropheToSymbol();
+            q.F = F.Text == "_" || F.Text == " " ? "": F.Text.ReplaceApostropheToSymbol();
+            q.G = G.Text == "_" || G.Text == " " ? "": G.Text.ReplaceApostropheToSymbol();
+            q.HH = HH.Text == "_" || HH.Text == " " ? "": HH.Text.ReplaceApostropheToSymbol();
+            q.I = I.Text == "_" || I.Text == " " ? "": I.Text.ReplaceApostropheToSymbol();
+            q.J = J.Text == "_" || J.Text == " " ? "": J.Text.ReplaceApostropheToSymbol();
+            q.K = K.Text == "_" || K.Text == " " ? "": K.Text.ReplaceApostropheToSymbol();
         }
 
         private void Type4_Load(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace Exam.QuestionForms
                 string[] temp = str.Split(';').ToArray();
                 foreach (var item in temp)
                 {
-                    l.Add(item);
+                    l.Add(item.ReplaceApostropheToSymbol());
                 }
             }
             catch

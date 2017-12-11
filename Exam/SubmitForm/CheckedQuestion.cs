@@ -26,25 +26,24 @@ namespace Exam
             else
             {
                 if (Question.Type == 6)
-                    w.Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B);
+                    w.Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B.ReplaceApostropheToSymbol());
                 else
-                    w.Append(String.IsNullOrEmpty(Question.A) ? "" : Question.A == "1" ? "A;" : "A: " + Question.A + "\n")
-                     .Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B == "1" ? "B;" : "B: " + Question.B + "\n");
+                    w.Append(String.IsNullOrEmpty(Question.A) ? "" : Question.A == "1" ? "A;" : "A: " + Question.A.ReplaceApostropheToSymbol() + "\n")
+                     .Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B == "1" ? "B;" : "B: " + Question.B.ReplaceApostropheToSymbol() + "\n");
             }
             if (Question.Type != 5 && Question.Type != 6)
             {
-                w.Append(String.IsNullOrEmpty(Question.C) ? "" : Question.C == "1" ? "C;" : "C: " + Question.C + " ")
-            .Append(String.IsNullOrEmpty(Question.D) ? "" : Question.D == "1" ? "D;" : "D: " + Question.D + " ")
-            .Append(String.IsNullOrEmpty(Question.E) ? "" : Question.E == "1" ? "E;" : "E: " + Question.E + " ")
-            .Append(String.IsNullOrEmpty(Question.F) ? "" : Question.F == "1" ? "F;" : "F: " + Question.F + " ")
-            .Append(String.IsNullOrEmpty(Question.G) ? "" : Question.G == "1" ? "G;" : "G: " + Question.G + " ")
-            .Append(String.IsNullOrEmpty(Question.G) ? "" : Question.G == "1" ? "G;" : "G: " + Question.G + " ")
-            .Append(String.IsNullOrEmpty(Question.HH) ? "" : Question.HH == "1" ? "H;" : "H: " + Question.HH + " ")
-            .Append(String.IsNullOrEmpty(Question.I) ? "" : Question.I == "1" ? "I;" : "I: " + Question.I + " ")
-            .Append(String.IsNullOrEmpty(Question.J) ? "" : Question.J == "1" ? "J;" : "J: " + Question.J + " ")
-            .Append(String.IsNullOrEmpty(Question.K) ? "" : Question.K == "1" ? "K;" : "K: " + Question.K + " ");
+                w.Append(String.IsNullOrEmpty(Question.C) ? "" : Question.C == "1" ? "C;" : "C: " + Question.C.ReplaceApostropheToSymbol() + " ")
+            .Append(String.IsNullOrEmpty(Question.D) ? "" : Question.D == "1" ? "D;" : "D: " + Question.D.ReplaceApostropheToSymbol() + " ")
+            .Append(String.IsNullOrEmpty(Question.E) ? "" : Question.E == "1" ? "E;" : "E: " + Question.E.ReplaceApostropheToSymbol() + " ")
+            .Append(String.IsNullOrEmpty(Question.F) ? "" : Question.F == "1" ? "F;" : "F: " + Question.F.ReplaceApostropheToSymbol() + " ")
+            .Append(String.IsNullOrEmpty(Question.G) ? "" : Question.G == "1" ? "G;" : "G: " + Question.G.ReplaceApostropheToSymbol() + " ")          
+            .Append(String.IsNullOrEmpty(Question.HH) ? "" : Question.HH == "1" ? "H;" : "H: " + Question.HH.ReplaceApostropheToSymbol() + " ")
+            .Append(String.IsNullOrEmpty(Question.I) ? "" : Question.I == "1" ? "I;" : "I: " + Question.I.ReplaceApostropheToSymbol() + " ")
+            .Append(String.IsNullOrEmpty(Question.J) ? "" : Question.J == "1" ? "J;" : "J: " + Question.J.ReplaceApostropheToSymbol() + " ")
+            .Append(String.IsNullOrEmpty(Question.K) ? "" : Question.K == "1" ? "K;" : "K: " + Question.K.ReplaceApostropheToSymbol() + " ");
                 if (Question.Type != 4)
-                    w.Append(String.IsNullOrEmpty(Question.H) ? "" : Question.H == "1" ? "H" : Question.H);
+                    w.Append(String.IsNullOrEmpty(Question.H) ? "" : Question.H == "1" ? "H" : Question.H.ReplaceApostropheToSymbol());
             }
             StringBuilder a = new StringBuilder();
             if (OK != null) // Jeśli udzielono odpowiedzi
@@ -57,27 +56,24 @@ namespace Exam
                 else
                 {
                     if (Question.Type == 6)
-                        a.Append(String.IsNullOrEmpty(Answer.B) ? "" : Answer.B);
+                        a.Append(String.IsNullOrEmpty(Answer.B) ? "" : Answer.B.ReplaceApostropheToSymbol());
                     else
-                        a.Append(String.IsNullOrEmpty(Answer.A) ? "" : Answer.A == "1" ? "A;" : "A: " + Answer.A + "\n")
-                         .Append(String.IsNullOrEmpty(Answer.B) ? "" : Answer.B == "1" ? "B;" : "B: " + Answer.B + "\n");
+                        a.Append(String.IsNullOrEmpty(Answer.A) ? "" : Answer.A == "1" ? "A;" : "A: " + Answer.A.ReplaceApostropheToSymbol() + "\n")
+                         .Append(String.IsNullOrEmpty(Answer.B) ? "" : Answer.B == "1" ? "B;" : "B: " + Answer.B.ReplaceApostropheToSymbol() + "\n");
                 }
                 if (Question.Type != 5 && Question.Type != 6)
-                {
-                    //a.Append(String.IsNullOrEmpty(Answer.A) ? "" : Answer.A == "1" ? "A;" : "A: " + Answer.A + " ")
-                    // .Append(String.IsNullOrEmpty(Answer.B) ? "" : Answer.B == "1" ? "B;" : "B: " + Answer.B + " ");
-
-                    a.Append(String.IsNullOrEmpty(Answer.C) ? "" : Answer.C == "1" ? "C;" : "C: " + Answer.C + " ")
-                    .Append(String.IsNullOrEmpty(Answer.D) ? "" : Answer.D == "1" ? "D;" : "D: " + Answer.D + " ")
-                    .Append(String.IsNullOrEmpty(Answer.E) ? "" : Answer.E == "1" ? "E;" : "E: " + Answer.E + " ")
-                    .Append(String.IsNullOrEmpty(Answer.F) ? "" : Answer.F == "1" ? "F;" : "F: " + Answer.F + " ")
-                    .Append(String.IsNullOrEmpty(Answer.G) ? "" : Answer.G == "1" ? "G;" : "G: " + Answer.G + " ")
-                    .Append(String.IsNullOrEmpty(Answer.HH) ? "" : Answer.HH == "1" ? "H;" : "H: " + Answer.HH + " ")
-                .Append(String.IsNullOrEmpty(Answer.I) ? "" : Answer.I == "1" ? "I;" : "I: " + Answer.I + " ")
-                .Append(String.IsNullOrEmpty(Answer.J) ? "" : Answer.J == "1" ? "J;" : "J: " + Answer.J + " ")
-                .Append(String.IsNullOrEmpty(Answer.K) ? "" : Answer.K == "1" ? "K;" : "K: " + Answer.K + " ");
+                {                   
+                    a.Append(String.IsNullOrEmpty(Answer.C) ? "" : Answer.C == "1" ? "C;" : "C: " + Answer.C.ReplaceApostropheToSymbol() + " ")
+                    .Append(String.IsNullOrEmpty(Answer.D) ? "" : Answer.D == "1" ? "D;" : "D: " + Answer.D.ReplaceApostropheToSymbol() + " ")
+                    .Append(String.IsNullOrEmpty(Answer.E) ? "" : Answer.E == "1" ? "E;" : "E: " + Answer.E.ReplaceApostropheToSymbol() + " ")
+                    .Append(String.IsNullOrEmpty(Answer.F) ? "" : Answer.F == "1" ? "F;" : "F: " + Answer.F.ReplaceApostropheToSymbol() + " ")
+                    .Append(String.IsNullOrEmpty(Answer.G) ? "" : Answer.G == "1" ? "G;" : "G: " + Answer.G.ReplaceApostropheToSymbol() + " ")
+                    .Append(String.IsNullOrEmpty(Answer.HH) ? "" : Answer.HH == "1" ? "H;" : "H: " + Answer.HH.ReplaceApostropheToSymbol() + " ")
+                    .Append(String.IsNullOrEmpty(Answer.I) ? "" : Answer.I == "1" ? "I;" : "I: " + Answer.I.ReplaceApostropheToSymbol() + " ")
+                    .Append(String.IsNullOrEmpty(Answer.J) ? "" : Answer.J == "1" ? "J;" : "J: " + Answer.J.ReplaceApostropheToSymbol() + " ")
+                    .Append(String.IsNullOrEmpty(Answer.K) ? "" : Answer.K == "1" ? "K;" : "K: " + Answer.K.ReplaceApostropheToSymbol() + " ");
                     if (Question.Type != 4)
-                        a.Append(String.IsNullOrEmpty(Answer.H) ? "" : Answer.H == "1" ? "H" : Answer.H);
+                        a.Append(String.IsNullOrEmpty(Answer.H) ? "" : Answer.H == "1" ? "H" : Answer.H.ReplaceApostropheToSymbol());
                 }
             }
             else
@@ -118,24 +114,24 @@ namespace Exam
             else
             {
                 if (Question.Type == 6)
-                    w.Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B);
+                    w.Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B.ReplaceApostropheToSymbol());
                 else
-                w.Append(String.IsNullOrEmpty(Question.A) ? "" : Question.A == "1" ? "A;" : "A: " + Question.A + "\n")
-                 .Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B == "1" ? "B;" : "B: " + Question.B + "\n");
+                w.Append(String.IsNullOrEmpty(Question.A) ? "" : Question.A == "1" ? "A;" : "A: " + Question.A.ReplaceApostropheToSymbol() + "\n")
+                 .Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B == "1" ? "B;" : "B: " + Question.B.ReplaceApostropheToSymbol() + "\n");
             }
             if (Question.Type != 5 && Question.Type != 6)
             {
-                w.Append(String.IsNullOrEmpty(Question.C) ? "" : Question.C == "1" ? "C;" : "C: " + Question.C + "\n")
-            .Append(String.IsNullOrEmpty(Question.D) ? "" : Question.D == "1" ? "D;" : "D: " + Question.D + "\n")
-            .Append(String.IsNullOrEmpty(Question.E) ? "" : Question.E == "1" ? "E;" : "E: " + Question.E + "\n")
-            .Append(String.IsNullOrEmpty(Question.F) ? "" : Question.F == "1" ? "F;" : "F: " + Question.F + "\n")
-            .Append(String.IsNullOrEmpty(Question.G) ? "" : Question.G == "1" ? "G;" : "G: " + Question.G + "\n")
-            .Append(String.IsNullOrEmpty(Question.HH) ? "" : Question.HH == "1" ? "H;" : "H: " + Question.HH + "\n")
-            .Append(String.IsNullOrEmpty(Question.I) ? "" : Question.I == "1" ? "I;" : "I: " + Question.I + "\n")
-            .Append(String.IsNullOrEmpty(Question.J) ? "" : Question.J == "1" ? "J;" : "J: " + Question.J + "\n")
-            .Append(String.IsNullOrEmpty(Question.K) ? "" : Question.K == "1" ? "K;" : "K: " + Question.K + "\n");
+                w.Append(String.IsNullOrEmpty(Question.C) ? "" : Question.C == "1" ? "C;" : "C: " + Question.C.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.D) ? "" : Question.D == "1" ? "D;" : "D: " + Question.D.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.E) ? "" : Question.E == "1" ? "E;" : "E: " + Question.E.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.F) ? "" : Question.F == "1" ? "F;" : "F: " + Question.F.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.G) ? "" : Question.G == "1" ? "G;" : "G: " + Question.G.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.HH) ? "" : Question.HH == "1" ? "H;" : "H: " + Question.HH.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.I) ? "" : Question.I == "1" ? "I;" : "I: " + Question.I.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.J) ? "" : Question.J == "1" ? "J;" : "J: " + Question.J.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.K) ? "" : Question.K == "1" ? "K;" : "K: " + Question.K.ReplaceApostropheToSymbol() + "\n");
                 if (Question.Type != 4)
-                    w.Append(String.IsNullOrEmpty(Question.H) ? "" : Question.H == "1" ? "H" : "H: " + Question.H + "\n");
+                    w.Append(String.IsNullOrEmpty(Question.H) ? "" : Question.H == "1" ? "H" : "H: " + Question.H.ReplaceApostropheToSymbol() + "\n");
             }
             return w.ToString();
 
@@ -151,24 +147,24 @@ namespace Exam
             else
             {
                 if (Question.Type == 6)
-                    w.Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B);
+                    w.Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B.ReplaceApostropheToSymbol());
                 else
-                    w.Append(String.IsNullOrEmpty(Question.A) ? "" : Question.A == "1" ? "A;" : "A: " + Question.A + "\n")
-                     .Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B == "1" ? "B;" : "B: " + Question.B + "\n");
+                    w.Append(String.IsNullOrEmpty(Question.A) ? "" : Question.A == "1" ? "A;" : "A: " + Question.A.ReplaceApostropheToSymbol() + "\n")
+                     .Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B == "1" ? "B;" : "B: " + Question.B.ReplaceApostropheToSymbol() + "\n");
             }
             if (Question.Type != 5 && Question.Type != 6)
             {
-                w.Append(String.IsNullOrEmpty(Question.C) ? "" : Question.C == "1" ? "C;" : "C: " + Question.C + "\n")
-            .Append(String.IsNullOrEmpty(Question.D) ? "" : Question.D == "1" ? "D;" : "D: " + Question.D + "\n")
-            .Append(String.IsNullOrEmpty(Question.E) ? "" : Question.E == "1" ? "E;" : "E: " + Question.E + "\n")
-            .Append(String.IsNullOrEmpty(Question.F) ? "" : Question.F == "1" ? "F;" : "F: " + Question.F + "\n")
-            .Append(String.IsNullOrEmpty(Question.G) ? "" : Question.G == "1" ? "G;" : "G: " + Question.G + "\n")
-            .Append(String.IsNullOrEmpty(Question.HH) ? "" : Question.HH == "1" ? "H;" : "H: " + Question.HH + "\n")
-            .Append(String.IsNullOrEmpty(Question.I) ? "" : Question.I == "1" ? "I;" : "I: " + Question.I + "\n")
-            .Append(String.IsNullOrEmpty(Question.J) ? "" : Question.J == "1" ? "J;" : "J: " + Question.J + "\n")
-            .Append(String.IsNullOrEmpty(Question.K) ? "" : Question.K == "1" ? "K;" : "K: " + Question.K + "\n");
+                w.Append(String.IsNullOrEmpty(Question.C) ? "" : Question.C == "1" ? "C;" : "C: " + Question.C.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.D) ? "" : Question.D == "1" ? "D;" : "D: " + Question.D.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.E) ? "" : Question.E == "1" ? "E;" : "E: " + Question.E.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.F) ? "" : Question.F == "1" ? "F;" : "F: " + Question.F.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.G) ? "" : Question.G == "1" ? "G;" : "G: " + Question.G.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.HH) ? "" : Question.HH == "1" ? "H;" : "H: " + Question.HH.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.I) ? "" : Question.I == "1" ? "I;" : "I: " + Question.I.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.J) ? "" : Question.J == "1" ? "J;" : "J: " + Question.J.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.K) ? "" : Question.K == "1" ? "K;" : "K: " + Question.K.ReplaceApostropheToSymbol() + "\n");
                 if (Question.Type != 4)
-                    w.Append(String.IsNullOrEmpty(Question.H) ? "" : Question.H == "1" ? "H" : Question.H);
+                    w.Append(String.IsNullOrEmpty(Question.H) ? "" : Question.H == "1" ? "H" : Question.H.ReplaceApostropheToSymbol());
             }
             return w.ToString();
         }
@@ -190,24 +186,24 @@ namespace Exam
             else
             {
                 if (Question.Type == 6)
-                    w.Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B);
+                    w.Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B.ReplaceApostropheToSymbol());
                 else
-                    w.Append(String.IsNullOrEmpty(Question.A) ? "" : Question.A == "1" ? "A;" : "A: " + Question.A + "\n")
-                     .Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B == "1" ? "B;" : "B: " + Question.B + "\n");
+                    w.Append(String.IsNullOrEmpty(Question.A) ? "" : Question.A == "1" ? "A;" : "A: " + Question.A.ReplaceApostropheToSymbol() + "\n")
+                     .Append(String.IsNullOrEmpty(Question.B) ? "" : Question.B == "1" ? "B;" : "B: " + Question.B.ReplaceApostropheToSymbol() + "\n");
             }
             if (Question.Type != 5 && Question.Type != 6)
             {
-                w.Append(String.IsNullOrEmpty(Question.C) ? "" : Question.C == "1" ? "C;" : "C: " + Question.C + "\n")
-            .Append(String.IsNullOrEmpty(Question.D) ? "" : Question.D == "1" ? "D;" : "D: " + Question.D + "\n")
-            .Append(String.IsNullOrEmpty(Question.E) ? "" : Question.E == "1" ? "E;" : "E: " + Question.E + "\n")
-            .Append(String.IsNullOrEmpty(Question.F) ? "" : Question.F == "1" ? "F;" : "F: " + Question.F + "\n")
-            .Append(String.IsNullOrEmpty(Question.G) ? "" : Question.G == "1" ? "G;" : "G: " + Question.G + "\n")
-            .Append(String.IsNullOrEmpty(Question.HH) ? "" : Question.HH == "1" ? "H;" : "H: " + Question.HH + "\n")
-            .Append(String.IsNullOrEmpty(Question.I) ? "" : Question.I == "1" ? "I;" : "I: " + Question.I + "\n")
-            .Append(String.IsNullOrEmpty(Question.J) ? "" : Question.J == "1" ? "J;" : "J: " + Question.J + "\n")
-            .Append(String.IsNullOrEmpty(Question.K) ? "" : Question.K == "1" ? "K;" : "K: " + Question.K + "\n");
+                w.Append(String.IsNullOrEmpty(Question.C) ? "" : Question.C == "1" ? "C;" : "C: " + Question.C.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.D) ? "" : Question.D == "1" ? "D;" : "D: " + Question.D.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.E) ? "" : Question.E == "1" ? "E;" : "E: " + Question.E.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.F) ? "" : Question.F == "1" ? "F;" : "F: " + Question.F.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.G) ? "" : Question.G == "1" ? "G;" : "G: " + Question.G.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.HH) ? "" : Question.HH == "1" ? "H;" : "H: " + Question.HH.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.I) ? "" : Question.I == "1" ? "I;" : "I: " + Question.I.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.J) ? "" : Question.J == "1" ? "J;" : "J: " + Question.J.ReplaceApostropheToSymbol() + "\n")
+            .Append(String.IsNullOrEmpty(Question.K) ? "" : Question.K == "1" ? "K;" : "K: " + Question.K.ReplaceApostropheToSymbol() + "\n");
                 if (Question.Type != 4)
-                    w.Append(String.IsNullOrEmpty(Question.H) ? "" : Question.H == "1" ? "H" : Question.H);
+                    w.Append(String.IsNullOrEmpty(Question.H) ? "" : Question.H == "1" ? "H" : Question.H.ReplaceApostropheToSymbol());
             }
             string result = "";
             StringBuilder s = new StringBuilder();

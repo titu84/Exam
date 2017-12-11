@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace Exam.QuestionForms
 {
     public partial class EditOptionForm : Exam.QuestionForms.AddOptionDialog
-    {
+    {       
         public EditOptionForm()
         {
             InitializeComponent();

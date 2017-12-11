@@ -16,8 +16,7 @@ namespace Exam.QuestionForms
         {
             InitializeComponent();
         }
-        string replace1 = ";";
-        string replace2 = "\"[srednik]";
+        
         public string resultStr { get; internal set; }
         private void button1_Click(object sender, EventArgs e)
         {           
@@ -27,7 +26,7 @@ namespace Exam.QuestionForms
                 tb.Focus();
                 this.DialogResult = DialogResult.None;
             }
-            resultStr = tb.Text.Substring(0, tb.Text.Length - 1).Replace(replace1, replace2) + ";";
+            resultStr = tb.Text;
         }
 
         private void tb_KeyDown(object sender, KeyEventArgs e)
