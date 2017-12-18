@@ -292,27 +292,35 @@ namespace Exam
                     switch (checkedQ.Question.Type)
                     {
                         case 5:
-                            tabQ = new string[] { q.A, q.B };
+                            tabQ = new string[] { q.A == "" ? null : q.A, q.B == "" ? null : q.B };
                             tabA = new string[] {
-                            checkedQ.Answer.A == null ? null: checkedQ.Answer.A,
-                            checkedQ.Answer.B == null ? null: checkedQ.Answer.B };
+                            checkedQ.Answer.A,
+                            checkedQ.Answer.B };
                             break;
                         case 6:
-                            tabQ = new string[] { q.B };
+                            tabQ = new string[] { q.B == "" ? null : q.B };
                             tabA = new string[] {
-                            checkedQ.Answer.A == null ? null: checkedQ.Answer.B };
+                            checkedQ.Answer.B };
                             break;
                         default:
-                            tabQ = new string[] { q.A, q.B, q.C, q.D, q.E, q.F, q.G, q.H };
+                            tabQ = new string[] {
+                                q.A == ""? null: q.A,
+                                q.B == ""? null: q.B,
+                                q.C == ""? null: q.C,
+                                q.D == ""? null: q.D,
+                                q.E == ""? null: q.E,
+                                q.F == ""? null: q.F,
+                                q.G == ""? null: q.G,
+                                q.H == ""? null: q.H };
                             tabA = new string[] {
-                            checkedQ.Answer.A == null ? null: checkedQ.Answer.A,
-                            checkedQ.Answer.B == null ? null: checkedQ.Answer.B,
-                            checkedQ.Answer.C == null ? null: checkedQ.Answer.C,
-                            checkedQ.Answer.D == null ? null: checkedQ.Answer.D,
-                            checkedQ.Answer.E == null ? null: checkedQ.Answer.E,
-                            checkedQ.Answer.F == null ? null: checkedQ.Answer.F,
-                            checkedQ.Answer.G == null ? null: checkedQ.Answer.G,
-                            checkedQ.Answer.H == null ? null: checkedQ.Answer.H
+                                checkedQ.Answer.A,
+                                checkedQ.Answer.B,
+                                checkedQ.Answer.C,
+                                checkedQ.Answer.D,
+                                checkedQ.Answer.E,
+                                checkedQ.Answer.F,
+                                checkedQ.Answer.G,
+                                checkedQ.Answer.H
                             };
                             break;
                     }
