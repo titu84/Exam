@@ -297,7 +297,7 @@ namespace Exam
             try
             {
                 if (String.IsNullOrEmpty(textToTranslate))
-                    textToTranslate = parent.list.Where(a => a.ID == (long)getQuestionNumber()).Select(a => a.question).FirstOrDefault();
+                    textToTranslate = htmlDocument.body.innerText;
                 TranslationForm f = new TranslationForm(textToTranslate, labelQuestion.Text);
                 f.ShowDialog();
             }
@@ -307,7 +307,7 @@ namespace Exam
                 try
                 {
                     if (String.IsNullOrEmpty(textToTranslate))
-                        textToTranslate = parent.list.Where(a => a.ID == (long)getQuestionNumber()).Select(a => a.question).FirstOrDefault();
+                        textToTranslate = htmlDocument.body.innerText;
                     TranslationForm f = new TranslationForm(textToTranslate, labelQuestion.Text);
                     System.Diagnostics.Process.Start(f.BrowserLink);
                 }
@@ -357,17 +357,8 @@ namespace Exam
             }
             try
             {
-                if (String.IsNullOrEmpty(input))
-                    input = parent.list.Where(a => a.ID == (long)getQuestionNumber()).Select(a => a.question).FirstOrDefault();
-                input = input.Replace("</br>", " ");
-                input = input.Replace("<td>", " ");
-                input = input.Replace("</td>", " ");
-                input = input.Replace("</tr>", " ");
-                input = input.Replace("<tr>", " ");
-                input = input.Replace("<th>", " ");
-                input = input.Replace("</th>", " ");
-                input = input.Replace("<u>", " ");
-                input = input.Replace("</u>", " ");
+                if (String.IsNullOrEmpty(input))                  
+                    input = htmlDocument.body.innerText;
                 Talk talk = new Talk(input);
             }
             catch { }
