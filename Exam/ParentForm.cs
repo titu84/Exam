@@ -313,14 +313,14 @@ namespace Exam
                                 q.G == ""? null: q.G,
                                 q.H == ""? null: q.H };
                             tabA = new string[] {
-                                checkedQ.Answer.A,
-                                checkedQ.Answer.B,
-                                checkedQ.Answer.C,
-                                checkedQ.Answer.D,
-                                checkedQ.Answer.E,
-                                checkedQ.Answer.F,
-                                checkedQ.Answer.G,
-                                checkedQ.Answer.H
+                                checkedQ.Answer.A == ""? null: checkedQ.Answer.A,
+                                checkedQ.Answer.B == ""? null: checkedQ.Answer.B,
+                                checkedQ.Answer.C == ""? null: checkedQ.Answer.C,
+                                checkedQ.Answer.D == ""? null: checkedQ.Answer.D,
+                                checkedQ.Answer.E == ""? null: checkedQ.Answer.E,
+                                checkedQ.Answer.F == ""? null: checkedQ.Answer.F,
+                                checkedQ.Answer.G == ""? null: checkedQ.Answer.G,
+                                checkedQ.Answer.H == ""? null: checkedQ.Answer.H
                             };
                             break;
                     }
