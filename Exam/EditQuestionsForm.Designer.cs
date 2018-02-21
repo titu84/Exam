@@ -72,7 +72,8 @@
             "Jednokrotny wybór",
             "Wielokrotny wybór",
             "Dopasowanie",
-            "Przenoszenie"});
+            "Przenoszenie",
+            "Wpisywanie"});
             this.cbAnswerType.Location = new System.Drawing.Point(126, 592);
             this.cbAnswerType.Name = "cbAnswerType";
             this.cbAnswerType.Size = new System.Drawing.Size(117, 21);
@@ -119,7 +120,6 @@
             this.cbQuestionType.FormattingEnabled = true;
             this.cbQuestionType.Items.AddRange(new object[] {
             "Tekst",
-            "HTML (zmienia tylko nową linię w </br>)",
             "Obrazek"});
             this.cbQuestionType.Location = new System.Drawing.Point(94, 3);
             this.cbQuestionType.Name = "cbQuestionType";
@@ -194,12 +194,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wklejToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(104, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(105, 26);
             // 
             // wklejToolStripMenuItem
             // 
             this.wklejToolStripMenuItem.Name = "wklejToolStripMenuItem";
-            this.wklejToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.wklejToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.wklejToolStripMenuItem.Text = "Wklej";
             this.wklejToolStripMenuItem.Click += new System.EventHandler(this.wklejToolStripMenuItem_Click);
             // 
@@ -234,12 +234,12 @@
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(104, 26);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(105, 26);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
             this.toolStripMenuItem1.Text = "Wklej";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 

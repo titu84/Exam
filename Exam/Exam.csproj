@@ -95,6 +95,12 @@
     </Compile>
     <Compile Include="Ext.cs" />
     <Compile Include="QuestionForms\Talk.cs" />
+    <Compile Include="QuestionForms\Type6.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QuestionForms\Type6.Designer.cs">
+      <DependentUpon>Type6.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuestionForms\Type5q.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -239,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddRangeForm.resx">
       <DependentUpon>AddRangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuestionForms\Type6.resx">
+      <DependentUpon>Type6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuestionForms\Type5q.resx">
       <DependentUpon>Type5q.cs</DependentUpon>

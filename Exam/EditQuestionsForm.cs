@@ -22,6 +22,7 @@ namespace Exam
         Type3 type3 = new Type3();
         Type4 type4 = new Type4();
         Type5 type5 = new Type5();       
+        Type6 type6 = new Type6();
         DbQuestion q = new DbQuestion();
         public string connStr;
         int lower = 50;
@@ -41,10 +42,10 @@ namespace Exam
                 case 0:
                     richTextBox1.Text = richTextBox1.Text.Replace(replace2, replace1);
                     goto default;
+                //case 1:
+                //    richTextBox1.Text = richTextBox1.Text.Replace(replace1, replace2);
+                //    goto default;
                 case 1:
-                    richTextBox1.Text = richTextBox1.Text.Replace(replace1, replace2);
-                    goto default;
-                case 2:
                     labelDescription.Text = "Tekst dla wyszukiwarki";
                     btnBold.Visible = false;
                     btnGreen.Visible = false;
@@ -82,7 +83,7 @@ namespace Exam
             {
                 rtbW = this.Size.Width;
                 rtbH = this.Size.Height - 20;
-                if (cbQuestionType.SelectedIndex == 2) // obrazek
+                if (cbQuestionType.SelectedIndex == 1) // obrazek
                 {
                     richTextBox1.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right;
                     pictureBox1.Size = new Size(richTextBox1.Size.Width / 2, rtbH - 183);
@@ -126,6 +127,7 @@ namespace Exam
                 type3.Dispose();
                 type4.Dispose();
                 type5.Dispose();
+                type6.Dispose();
                 Point point = new Point(250, richTextBox1.Size.Height + lower);
                 AnchorStyles anchor = AnchorStyles.Bottom | AnchorStyles.Left;
                 setRtbLocation();
@@ -160,6 +162,12 @@ namespace Exam
                         Controls.Add(type5);
                         type5.Location = new Point(250, richTextBox1.Size.Height + pictureBox1.Size.Height + lower);
                         type5.Anchor = anchor;
+                        break;
+                    case 5:
+                        type6 = new Type6();
+                        Controls.Add(type6);
+                        type6.Location = new Point(250, richTextBox1.Size.Height + pictureBox1.Size.Height + lower);
+                        type6.Anchor = anchor;
                         break;
                     default:
                         break;
@@ -238,12 +246,18 @@ namespace Exam
                         }
                         q = type5.q;                       
                         q.Type = type5.q.Type;
-                        break;                    
+                        break;
+                    case 5:
+                        if (type6.q == null)
+                            goto default;
+                        q = type6.q;
+                        q.Type = 7;
+                        break;
                     default:
                         MessageBox.Show("Zaznacz odpowiedzi", "Nie dodano!!!");
                         return;
                 }
-                if (cbQuestionType.SelectedIndex == 2)
+                if (cbQuestionType.SelectedIndex == 1)
                 {
                     //using (Repository r = new Repository(connStr))
                     //{
@@ -318,7 +332,7 @@ namespace Exam
                     DbQuestion q = r.GetQuestion(id);
                     if (q.QType == 2)
                     {
-                        cbQuestionType.SelectedIndex = 2;                        
+                        cbQuestionType.SelectedIndex = 1;                        
                         pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                         pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
                          // ciągniemy obrazki z bazy                       
@@ -332,7 +346,7 @@ namespace Exam
                     {
                         cbQuestionType.SelectedIndex = 0;
                     }
-                    cbAnswerType.SelectedIndex = (int)q.Type == 6? (int)q.Type - 2: (int)q.Type - 1;
+                    cbAnswerType.SelectedIndex = (int)q.Type >= 6? (int)q.Type - 2: (int)q.Type - 1;
                     richTextBox1.Text = q.question.Replace(replace2, replace1);
                     richTextBox1.Text = richTextBox1.Text.ReplaceApostropheToSymbol();                   
                     type1.Dispose();
@@ -340,6 +354,7 @@ namespace Exam
                     type3.Dispose();
                     type4.Dispose();
                     type5.Dispose();
+                    type6.Dispose();
                     Point point = new Point(250, richTextBox1.Size.Height + pictureBox1.Size.Height + lower);
                     AnchorStyles anchor = AnchorStyles.Bottom | AnchorStyles.Left;
                     switch (cbAnswerType.SelectedIndex)
@@ -378,6 +393,13 @@ namespace Exam
                             Controls.Add(type5);
                             type5.Location = point;
                             type5.Anchor = anchor;
+                            break;
+                        case 5:
+                            type6 = new Type6();
+                            type6.q = q;
+                            Controls.Add(type6);
+                            type6.Location = point;
+                            type6.Anchor = anchor;
                             break;
                         default:                          
                             break;

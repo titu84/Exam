@@ -29,6 +29,7 @@ namespace Exam
         Type4q type4q = new Type4q();
         Type5q type5q = new Type5q();
         Type5q type6 = new Type5q(false);
+        Type6 type7 = new Type6();
         string goodAnwser = "";       
         int percent = 0;
         private void buttonNext_Click(object sender, EventArgs e)
@@ -140,6 +141,16 @@ namespace Exam
                     if (exam)
                         type6.Leave += new System.EventHandler(this.type6_Leave);
                     Controls.Add(type6);
+                    break;
+                case 7:
+                    if (answer != null)
+                        type7.q = answer;
+                    Controls.Add(type7);
+                    type7.Location = new Point(105, panel1.Size.Height + 35);
+                    type7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+                    type7.TabIndex = 1;
+                    if (exam)
+                        type7.Leave += new System.EventHandler(this.type7_Leave);
                     break;
                 default:
                     break;                    
@@ -272,6 +283,19 @@ namespace Exam
                 parent.ChangeTreeViewItemColor(type6.q.ID);
             }
             catch { }
+        }
+        //Typ7 -  wpisywanie
+        private void type7_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                int? qId = getId(getQuestionNumber());
+                type7.q.ID = getQuestionNumber();
+                parent.AddAnswer(type7.q);
+                parent.ChangeTreeViewItemColor(type7.q.ID);
+            }
+            catch { }
+
         }
         private void btnCheckAll_Click(object sender, EventArgs e)
         {
