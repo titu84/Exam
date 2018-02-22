@@ -299,8 +299,11 @@ namespace Exam
                             break;
                         case 6:
                             tabQ = new string[] { q.B == "" ? null : q.B };
-                            tabA = new string[] {
-                            checkedQ.Answer.B };
+                            tabA = new string[] {checkedQ.Answer.B };
+                            break;
+                        case 7:                           
+                            tabQ = new string[] { q.A == "" ? null : String.Join("", q.A.ToUpper().Split(' ')).Replace("\r","").Replace("\n", "") };
+                            tabA = new string[] { String.Join("", checkedQ.Answer.A.ToUpper().Split(' ')).Replace("\r", "").Replace("\n", "") };
                             break;
                         default:
                             tabQ = new string[] {

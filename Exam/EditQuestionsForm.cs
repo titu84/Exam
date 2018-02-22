@@ -93,6 +93,11 @@ namespace Exam
                         pictureBox1.Size = new Size(pictureBox1.Size.Width, pictureBox1.Size.Height - 85);
                         pictureBox2.Size = new Size(pictureBox2.Size.Width, pictureBox2.Size.Height - 85);
                     }
+                    else if (cbAnswerType.SelectedIndex == 5)
+                    {
+                        pictureBox1.Size = new Size(pictureBox1.Size.Width, pictureBox1.Size.Height - 20);
+                        pictureBox2.Size = new Size(pictureBox2.Size.Width, pictureBox2.Size.Height - 20);
+                    }
                     rtbH = 180;
                     btnImageAdd.Visible = true;
                     btnImageAltAdd.Visible = true;
@@ -107,6 +112,8 @@ namespace Exam
                     pictureBox2.Size = new Size(richTextBox1.Size.Width / 2, 0);
                     if (cbAnswerType.SelectedIndex == 3 || cbAnswerType.SelectedIndex == 4) // Jeśli Dopasowanie to jeszcze mniejszy.
                         rtbH = rtbH - 85;
+                    else if(cbAnswerType.SelectedIndex == 5)
+                        rtbH = rtbH - 20;
                     btnImageAdd.Visible = false;
                     btnImageAltAdd.Visible = false;
                     pictureBox1.Visible = false;

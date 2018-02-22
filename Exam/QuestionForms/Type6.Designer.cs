@@ -38,7 +38,7 @@
             this.groupBox1.Controls.Add(this.tb);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(452, 56);
+            this.groupBox1.Size = new System.Drawing.Size(452, 69);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -47,7 +47,7 @@
             this.tb.Location = new System.Drawing.Point(4, 6);
             this.tb.Multiline = true;
             this.tb.Name = "tb";
-            this.tb.Size = new System.Drawing.Size(443, 44);
+            this.tb.Size = new System.Drawing.Size(443, 60);
             this.tb.TabIndex = 0;
             this.tb.TextChanged += new System.EventHandler(this.tb_TextChanged);
             // 
@@ -57,7 +57,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "Type6";
-            this.Size = new System.Drawing.Size(455, 54);
+            this.Size = new System.Drawing.Size(455, 69);
             this.Load += new System.EventHandler(this.Type6_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
