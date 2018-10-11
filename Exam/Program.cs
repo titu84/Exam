@@ -17,6 +17,7 @@ namespace Exam
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ParentForm());
+
             //bla bla
         }
     }
