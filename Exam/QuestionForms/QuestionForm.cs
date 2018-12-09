@@ -322,8 +322,9 @@ namespace Exam
             {
                 if (String.IsNullOrEmpty(textToTranslate))
                     textToTranslate = htmlDocument.body.innerText;
-                TranslationForm f = new TranslationForm(textToTranslate, labelQuestion.Text);
-                f.ShowDialog();
+                //TranslationForm f = new TranslationForm(textToTranslate, labelQuestion.Text);
+                //f.ShowDialog();
+                System.Diagnostics.Process.Start(String.Format("https://translate.google.pl/#view=home&op=translate&sl=en&tl=pl&text={0}", replace(textToTranslate)));
             }
             catch (WebException exc)
             {
@@ -332,8 +333,9 @@ namespace Exam
                 {
                     if (String.IsNullOrEmpty(textToTranslate))
                         textToTranslate = htmlDocument.body.innerText;
-                    TranslationForm f = new TranslationForm(textToTranslate, labelQuestion.Text);
-                    System.Diagnostics.Process.Start(f.BrowserLink);
+                    //TranslationForm f = new TranslationForm(textToTranslate, labelQuestion.Text);
+                    //System.Diagnostics.Process.Start(f.BrowserLink);
+                    System.Diagnostics.Process.Start(String.Format("https://translate.google.pl/#view=home&op=translate&sl=en&tl=pl&text={0}", replace(textToTranslate)));
                 }
                 catch (WebException)
                 {
@@ -347,6 +349,14 @@ namespace Exam
                 MessageBox.Show("Problem z tłumaczeniem.", "Nieznany błąd!");
                 return;
             }
+        }
+        private static string replace(string input)
+        {
+            input = input.Replace("</br>", "%20");
+            input = input.Replace(" ", "%20");
+            input = input.ReplaceApostropheToSymbol();
+            input = input.Replace(Environment.NewLine, "%20");
+            return input;
         }
         private void btnTranslate_MouseHover(object sender, EventArgs e)
         {

@@ -21,28 +21,20 @@ namespace Exam
         public TranslationForm(string text, string description)
         {
             InitializeComponent();            
-            labelQuestion.Text = description + " - PL";
-            webBrowser1.DocumentText = translateText(text);
+            labelQuestion.Text = description + " - PL";          
+            translateText(text);
             BrowserLink = setLink(text);
         }
         public string BrowserLink { get; private set; }
-        string translateText(string input)
+        void translateText(string input)
         {
             input = replace(input);
-            string url = String.Format("http://www.google.com/translate_t?hl=en&ie=UTF8&text={0}&langpair=en|pl", input);
-            WebClient webClient = new WebClient();
-            webClient.Encoding = System.Text.Encoding.GetEncoding("iso-8859-2");
-            string result = webClient.DownloadString(url);
-            result = result.Substring(result.IndexOf("<span id=result_box") + " <span id=result_box".Length);
-            result = result.Substring(result.IndexOf(">") + 1);
-            result = result.Substring(0, result.IndexOf("</span></div>"));
-            result = " <div style='font-family: verdana;'>" + result + "</div> ";
-            return result.Trim();
+            System.Diagnostics.Process.Start(String.Format("https://translate.google.pl/#view=home&op=translate&sl=en&tl=pl&text={0}", input));        
         }
         string setLink(string input)
         {
             input = replace(input);
-            string url = String.Format("http://www.google.com/translate_t?hl=en&ie=UTF8&text={0}&langpair=en|pl", input);
+            string url = String.Format("https://translate.google.pl/#view=home&op=translate&sl=en&tl=pl&text={0}", input);
             return url;
         }
 
