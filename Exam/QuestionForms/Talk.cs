@@ -70,12 +70,15 @@ namespace SpeakNamespace
             this.button3.Click += new System.EventHandler(this.button3_Click);
             this.button3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TalkingForm_KeyDown);
             //
-            synt.GetInstalledVoices(new CultureInfo("en-US"));
+            synt = new SpeechSynthesizer();
+            var voices = synt.GetInstalledVoices(new CultureInfo("en-US"));
+            if (voices.Count > 0)
+                synt.SelectVoice(voices.First().VoiceInfo.Name);
             synt.Volume = 100;  // 0...100
-            synt.Rate = -2;     // -10...10
+            synt.Rate = 0;     // -10...10
         }
         string text = "";
-        SpeechSynthesizer synt = new SpeechSynthesizer();
+        SpeechSynthesizer synt;
         private void TalkingForm_Load(object sender, EventArgs e)
         {
             talk(text);
