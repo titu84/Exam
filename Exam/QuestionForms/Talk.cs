@@ -10,16 +10,16 @@ using System.Windows.Forms;
 namespace SpeakNamespace
 {
     public class Talk
-    {
-        public Talk(string text)
+    {    
+        public Talk(string text, short question)
         {
-            TalkingForm tf = new TalkingForm(text);
-            tf.ShowDialog();
+            TalkingForm tf = new TalkingForm(text, question);           
+            tf.Show();           
         }
     }
     public partial class TalkingForm : Form
     {
-        public TalkingForm(string text)
+        public TalkingForm(string text, short question)
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -37,8 +37,8 @@ namespace SpeakNamespace
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Speaker";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Lektor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = $"Lektor - pytanie: {question}";
             this.ResumeLayout(false);
             this.PerformLayout();
             this.text = text;

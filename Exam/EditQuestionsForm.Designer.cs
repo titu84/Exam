@@ -74,7 +74,7 @@
             "Dopasowanie",
             "Przenoszenie",
             "Wpisywanie"});
-            this.cbAnswerType.Location = new System.Drawing.Point(126, 592);
+            this.cbAnswerType.Location = new System.Drawing.Point(126, 708);
             this.cbAnswerType.Name = "cbAnswerType";
             this.cbAnswerType.Size = new System.Drawing.Size(117, 21);
             this.cbAnswerType.TabIndex = 1;
@@ -83,7 +83,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSubmit.Location = new System.Drawing.Point(978, 604);
+            this.btnSubmit.Location = new System.Drawing.Point(1296, 720);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(81, 23);
             this.btnSubmit.TabIndex = 10;
@@ -96,7 +96,7 @@
             this.cbQuestionList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbQuestionList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbQuestionList.FormattingEnabled = true;
-            this.cbQuestionList.Location = new System.Drawing.Point(12, 592);
+            this.cbQuestionList.Location = new System.Drawing.Point(12, 708);
             this.cbQuestionList.Name = "cbQuestionList";
             this.cbQuestionList.Size = new System.Drawing.Size(108, 21);
             this.cbQuestionList.TabIndex = 11;
@@ -106,7 +106,7 @@
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(978, 577);
+            this.btnDelete.Location = new System.Drawing.Point(1296, 693);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(81, 23);
             this.btnDelete.TabIndex = 12;
@@ -168,7 +168,7 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Location = new System.Drawing.Point(13, 110);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(522, 456);
+            this.pictureBox1.Size = new System.Drawing.Size(659, 572);
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
@@ -184,7 +184,7 @@
             this.richTextBox1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox1.Location = new System.Drawing.Point(13, 51);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1046, 515);
+            this.richTextBox1.Size = new System.Drawing.Size(1364, 631);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.SelectionChanged += new System.EventHandler(this.richTextBox1_SelectionChanged);
@@ -194,12 +194,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wklejToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(105, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(104, 26);
             // 
             // wklejToolStripMenuItem
             // 
             this.wklejToolStripMenuItem.Name = "wklejToolStripMenuItem";
-            this.wklejToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.wklejToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.wklejToolStripMenuItem.Text = "Wklej";
             this.wklejToolStripMenuItem.Click += new System.EventHandler(this.wklejToolStripMenuItem_Click);
             // 
@@ -208,9 +208,9 @@
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox2.Location = new System.Drawing.Point(537, 110);
+            this.pictureBox2.Location = new System.Drawing.Point(678, 110);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(522, 456);
+            this.pictureBox2.Size = new System.Drawing.Size(699, 572);
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
@@ -234,12 +234,12 @@
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(105, 26);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(104, 26);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.toolStripMenuItem1.Text = "Wklej";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -368,7 +368,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 634);
+            this.ClientSize = new System.Drawing.Size(1389, 750);
             this.Controls.Add(this.btnReplaceNewLine);
             this.Controls.Add(this.btnItalic);
             this.Controls.Add(this.btnNbsp);

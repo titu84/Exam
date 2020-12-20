@@ -315,8 +315,8 @@ namespace Exam
                     }
                     else
                         ok = r.Update(q);
-                    if (ok)
-                        MessageBox.Show("OK");
+                    //if (ok)
+                    //    MessageBox.Show("OK");
                     LoadFromDB(cbQuestionList.SelectedIndex);
                 }
             }

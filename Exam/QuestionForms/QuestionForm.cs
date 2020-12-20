@@ -157,10 +157,10 @@ namespace Exam
             }
             CheckedQuestion c = new CheckedQuestion();
             c.Question = parent.list.Where(a => a.ID == qn).FirstOrDefault();
-            if(parent.list.Where(a=>a.ID==qn).Select(a=>a.QType).FirstOrDefault()==2)
-                enableBtns(false);
-            else
-                enableBtns(true);            
+            //if(parent.list.Where(a=>a.ID==qn).Select(a=>a.QType).FirstOrDefault()==2)
+            //    enableBtns(false);
+            //else
+            //    enableBtns(true);            
             goodAnwser = c.GetGoodAnwser();            
         }
         private void checkButtons(int? idOfQuestion)
@@ -381,6 +381,7 @@ namespace Exam
         private void btnSpeak_Click(object sender, EventArgs e)
         {
             string input = "";
+            var nr = getQuestionNumber();
             IHTMLDocument2 htmlDocument = webBrowser1.Document.DomDocument as IHTMLDocument2;
             IHTMLSelectionObject currentSelection = htmlDocument.selection;
             if (currentSelection != null)
@@ -393,7 +394,11 @@ namespace Exam
             {
                 if (String.IsNullOrEmpty(input))                  
                     input = htmlDocument.body.innerText;
-                Talk talk = new Talk(input);
+                if (string.IsNullOrWhiteSpace(input))
+                {                                  
+                    input = parent.list.Where(a => a.ID == nr).FirstOrDefault()?.question.Replace("</br>", Environment.NewLine);
+                }                   
+                Talk talk = new Talk(input, getQuestionNumber());
             }
             catch { }
         }
