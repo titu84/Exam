@@ -1,10 +1,10 @@
-﻿<div class="col-md-12">
+﻿<div id='qp+[ID]+' class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
     <div class="panel panel-default">
         <div class="panel-heading" onclick="questionToggle('q+[ID]+')">
             +[description]+
         </div>
         <div class="panel-body qBody" id='q+[ID]+'>
-            <div class="row  col-md-12">
+             <div class="row  col-md-12">
                 +[question]+
             </div>
             <div class="row  col-md-12">
@@ -14,6 +14,7 @@
                 <div class="col-md-offset-1 col-md-2" id='b+[ID]+'>
                     <button type="button" class="btn btn-default" onclick="btnClick('+[ID]+', 'b+[ID]+')">Pokaż odpowiedź</button>
                 </div>
+                <button class="btn btn-default btn-sm pull-right" onclick="changeSize('qp+[ID]+')">Zmień szerokość</button>
                 <div class="col-md-offset-1 answer" id='+[ID]+'>
                     Prawidłowo:<strong> +[answer]+</strong>
                 </div>

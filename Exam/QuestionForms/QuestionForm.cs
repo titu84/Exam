@@ -397,8 +397,8 @@ namespace Exam
                 if (string.IsNullOrWhiteSpace(input))
                 {                                  
                     input = parent.list.Where(a => a.ID == nr).FirstOrDefault()?.question.Replace("</br>", Environment.NewLine);
-                }                   
-                Talk talk = new Talk(input, getQuestionNumber());
+                }                
+                Talk talk = new Talk(input.Split(new string[] { "<style>.itsGreen" }, StringSplitOptions.None).FirstOrDefault(), getQuestionNumber());
             }
             catch { }
         }

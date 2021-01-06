@@ -79,3 +79,12 @@ $(function () {
     });
 });
 
+function changeSize(myPanelBody) {
+    var x = document.getElementById(myPanelBody);
+    if (x.getAttribute("class") == "col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2") {
+        x.setAttribute("class", "col-md-12");
+    }
+    else {
+        x.setAttribute("class", "col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2");
+    }
+}
