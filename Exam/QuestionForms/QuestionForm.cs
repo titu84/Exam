@@ -321,9 +321,7 @@ namespace Exam
             try
             {
                 if (String.IsNullOrEmpty(textToTranslate))
-                    textToTranslate = htmlDocument.body.innerText;
-                //TranslationForm f = new TranslationForm(textToTranslate, labelQuestion.Text);
-                //f.ShowDialog();
+                    textToTranslate = getInput(textToTranslate, htmlDocument);
                 System.Diagnostics.Process.Start(String.Format("https://translate.google.pl/#view=home&op=translate&sl=en&tl=pl&text={0}", replace(textToTranslate)));
             }
             catch (WebException exc)
@@ -332,9 +330,7 @@ namespace Exam
                 try
                 {
                     if (String.IsNullOrEmpty(textToTranslate))
-                        textToTranslate = htmlDocument.body.innerText;
-                    //TranslationForm f = new TranslationForm(textToTranslate, labelQuestion.Text);
-                    //System.Diagnostics.Process.Start(f.BrowserLink);
+                        textToTranslate = htmlDocument.body.innerText;                    
                     System.Diagnostics.Process.Start(String.Format("https://translate.google.pl/#view=home&op=translate&sl=en&tl=pl&text={0}", replace(textToTranslate)));
                 }
                 catch (WebException)
@@ -380,8 +376,7 @@ namespace Exam
 
         private void btnSpeak_Click(object sender, EventArgs e)
         {
-            string input = "";
-            var nr = getQuestionNumber();
+            string input = "";            
             IHTMLDocument2 htmlDocument = webBrowser1.Document.DomDocument as IHTMLDocument2;
             IHTMLSelectionObject currentSelection = htmlDocument.selection;
             if (currentSelection != null)
@@ -392,15 +387,22 @@ namespace Exam
             }
             try
             {
-                if (String.IsNullOrEmpty(input))                  
-                    input = htmlDocument.body.innerText;
-                if (string.IsNullOrWhiteSpace(input))
-                {                                  
-                    input = parent.list.Where(a => a.ID == nr).FirstOrDefault()?.question.Replace("</br>", Environment.NewLine);
-                }                
-                Talk talk = new Talk(input.Split(new string[] { "<style>.itsGreen" }, StringSplitOptions.None).FirstOrDefault(), getQuestionNumber());
+                input = getInput(input, htmlDocument);
+                Talk talk = new Talk(input, getQuestionNumber());
             }
             catch { }
+        }
+
+        private string getInput(string input, IHTMLDocument2 htmlDocument)
+        {
+            if (String.IsNullOrEmpty(input))
+                input = htmlDocument.body.innerText;
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                input = parent.list.Where(a => a.ID == getQuestionNumber()).FirstOrDefault()?.question.Replace("</br>", Environment.NewLine).Split(new string[] { "<style>.itsGreen" }, StringSplitOptions.None).FirstOrDefault();
+            }
+
+            return input;
         }
 
         private void btnSpeak_MouseHover(object sender, EventArgs e)
